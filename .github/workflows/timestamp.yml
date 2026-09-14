@@ -3,6 +3,7 @@ name: Research Note Immutable Timestamp
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 # 이 워크플로우에 꼭 필요한 권한만 최소한으로 직접 지정합니다 (보안 최고 등급)
 permissions:
