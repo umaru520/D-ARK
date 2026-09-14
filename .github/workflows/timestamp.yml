@@ -3,11 +3,10 @@ name: Research Note Immutable Timestamp
 on:
   release:
     types: [published]
-  workflow_dispatch:
+  workflow_dispatch: # 수동 실행 버튼 활성화
 
-# 이 워크플로우에 꼭 필요한 권한만 최소한으로 직접 지정합니다 (보안 최고 등급)
 permissions:
-  contents: write  # 타임스탬프 박제용 브랜치에 글을 쓰기 위해 이 권한만 허용
+  contents: write
   id-token: write
 
 jobs:
@@ -17,8 +16,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 공인 기관(TSA)에 연구노트 시점을 기록하고 내 깃허브 브랜치에 자동 저장합니다.
+      # 에러가 나던 버전을 @main으로 수정했습니다
       - name: Create Trusted Timestamp
-        uses: timestampit/github_action@v1
+        uses: timestampit/github_action@main
         with:
           branch: 'trusted_timestamps'
