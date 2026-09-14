@@ -1,0 +1,17 @@
+name: Research Note Immutable Timestamp
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  timestamp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Create Trusted Timestamp
+        uses: timestampit/github_action@v1
+        with:
+          branch: 'trusted_timestamps'
